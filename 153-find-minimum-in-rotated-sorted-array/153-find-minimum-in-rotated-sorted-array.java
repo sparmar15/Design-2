@@ -8,9 +8,6 @@ class Solution {
         if(leftSorted & rightSorted || nums.length == 1){
             return nums[0];
         }
-        if(nums.length == 2){
-            return Math.min(nums[0], nums[1]);
-        }
         while(start <= end){
             mid = start + (end - start)/2;
             leftSorted = nums[start] <= nums[mid];
