@@ -2,16 +2,13 @@ class Solution {
     public int findMin(int[] nums) {
         int start = 0;
         int end = nums.length - 1;
-        int mid = start + (end - start)/2;
-        boolean leftSorted = nums[start] < nums[mid];
-        boolean rightSorted = nums[mid] < nums[end];
-        if(leftSorted & rightSorted || nums.length == 1){
+        if(nums[start] <= nums[end] || nums.length == 1){
             return nums[0];
         }
         while(start <= end){
-            mid = start + (end - start)/2;
-            leftSorted = nums[start] <= nums[mid];
-            rightSorted = nums[mid] < nums[end];
+            int mid = start + (end - start)/2;
+            boolean leftSorted = nums[start] <= nums[mid];
+            boolean rightSorted = nums[mid] < nums[end];
             if(leftSorted & rightSorted){
                 return nums[start];
             }
